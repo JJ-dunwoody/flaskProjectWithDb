@@ -1,0 +1,6 @@
+- [] Navbar
+- [] Decide on final topic
+- [] Page 1 (@Akjelland)
+- [] Page 2 (@ArcticWarmth)
+- [] Page 3 (@JJ-dunwoody)
+- [] Homepage

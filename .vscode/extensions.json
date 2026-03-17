@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "sugatoray.jinja-extension-pack"
+        "sugatoray.jinja-extension-pack",
+        "usernamehw.errorlens"
     ]
 }
