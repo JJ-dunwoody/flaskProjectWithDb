@@ -1,13 +1,24 @@
 {% extends "base.html" %}
-<!DOCTYPE html>
-<head>
-
-</head>
-
-<body>
 
 {% block content %}
 <h1>test</h1>
-
+<p>Enter your favorite game:</p>
+<form method="post">
+    <label for="game">Game name:</label>
+    <input type="text" id="game" name="game" required placeholder="Enter a game"/>
+    <br/>
+    <label for="release">Release year:</label>
+    <input type="number" id="release" name="release" placeholder="Enter a year"/>
+    <p class="label">Rating</p>
+    <!-- They took the blink tag from me. :( -->
+    <i>Please only select multiple checkboxes in order. Writing the JS for this is quickly becoming a feature creep problem.</i>
+    <br/>
+    <input type="checkbox" id="rating1star" name="rating1star" value="1" checked"/>
+    <input type="checkbox" id="rating2star" name="rating2star" value="2""/>
+    <input type="checkbox" id="rating3star" name="rating3star" value="3""/>
+    <input type="checkbox" id="rating4star" name="rating4star" value="4""/>
+    <input type="checkbox" id="rating5star" name="rating5star" value="5""/>
+    <br/>
+    <input type="submit" value="Submit"/>
+</form>
 {% endblock %}
-</body>

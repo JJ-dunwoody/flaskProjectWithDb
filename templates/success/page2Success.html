@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>test</h1>
+<p>Your response has been "recorded"</p>
+<br/>
+<h2>{{gameName}} - {{gameYear}}</h2>
+
+<h3>Rating:</h3>
+<span id="starContainer"></span>
+<br/>
+<a href="{{url_for('page2')}}">Submit another response</a>
+<script>
+    for (let i = 0; i < {{stars}}; i++) {
+        let star = document.createElement('img')
+        star.src = "{{url_for('static', filename='star_filled.svg')}}"
+        star.width = 40
+        star.height = 40
+        document.getElementById("starContainer").appendChild(star)
+    }
+    for (let i = {{stars}}; i < 5; i++) {
+        let star = document.createElement('img')
+        star.src = "{{url_for('static', filename='star.svg')}}"
+        star.width = 40
+        star.height = 40
+        document.getElementById("starContainer").appendChild(star)
+    }
+</script>
+{% endblock %}

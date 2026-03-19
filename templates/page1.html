@@ -1,13 +1,23 @@
 {% extends "base.html" %}
-<!DOCTYPE html>
-<head>
-
-</head>
-
-<body>
 
 {% block content %}
-<h1>test</h1>
-
+<h1>Favorite Movie/TV Show</h1>
+<form method="post">
+<div>
+    <label for="form1FirstInput">1. </label>
+    <input id="form1FirstInput" name="form1FirstInput" type="text"/>
+</div>
+<div>
+    <label for="form1secondInput">2. </label>
+    <input id="form1SecondInput" name="form1SecondInput" type="text"/>
+</div>
+<div>
+    <label for="form1ThirdInput">3. </label>
+    <input id="form1ThirdInput" name="form1ThirdInput" type="text"/>
+</div>
+<div>
+    <input type="submit"></input>
+</div>
+</form>
 {% endblock %}
 </body>
