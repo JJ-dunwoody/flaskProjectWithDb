@@ -2,5 +2,5 @@
 
 Project by 
 - @ArcticWarmth - Camden
-- @Akjelland
-- @JJ-dunwoody
+- @Akjelland - Anders
+- @JJ-dunwoody - JJ
