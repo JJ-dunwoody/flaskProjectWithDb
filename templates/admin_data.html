@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>All Data</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Weapons</th>
+        <th>Games Played</th>
+        <th># of Games Played</th>
+        <th>Playstyle</th>
+        <!-- <th>Created At</th> -->
+    </tr>
+
+
+{% for profile in profiles %}
+
+<tr>
+    <td>{{profile.name}}</td>
+    <td>{{profile.weapons}}</td>
+    <td>{{profile.amount}}</td>
+    <td>{{profile.number}}</td>
+    <td>{{profile.playstyle}}</td>
+    <!-- <td>{{profile.created_at}}</td> -->
+</tr>
+
+{% endfor %}
+
+</table>
+{% endblock %}

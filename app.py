@@ -1,8 +1,25 @@
-
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime, timezone
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///fromsoftData.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+class Profile(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    weapons = db.Column(db.String(100), nullable=False)
+    amount = db.Column(db.String(100), nullable=False)
+    number = db.Column(db.Integer, nullable=False)
+    playstyle = db.Column(db.String(100), nullable=False)
+    # created_at = db.Column(db.Datetime, default=datetime.now(timezone.utc))
+
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def home():
@@ -53,5 +70,28 @@ def page3():
         amount = request.form.getlist('fromAmount')
         number = len(amount)
         playstyle = request.form.get('playstyle','').strip()
+
+        try:
+            new_profile = Profile(
+                name = name,
+                weapons = weapon,
+                amount = str(amount),
+                number = number,
+                playstyle = playstyle
+            )
+            db.session.add(new_profile)
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            error = "You done messed up."
+            return render_template('page3.html', error=error)
+        
+
+
         return render_template('success/page3Success.html',name=name, weapon=weapon, fromAmount=amount, fromNumber=number, playstyle=playstyle)
     return render_template('page3.html')
+
+@app.route('/admin/data')
+def admin_data():
+    profiles = Profile.query.all()
+    return render_template('admin_data.html', profiles=profiles)
